@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:nyt_book_api/views/webView.dart';
 import '../models/modelBook.dart';
 
 class BookPage extends StatelessWidget {
@@ -44,26 +44,34 @@ class BookPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                Text('Autor: ${book.author}', style: const TextStyle(
-                  fontSize: 16)),
+                Text('Autor: ${book.author}',
+                    style: const TextStyle(fontSize: 16)),
                 const SizedBox(height: 8),
-                Text('Contribuinte: ${book.contributor}', style: const TextStyle(
-                    fontSize: 16)),
+                Text('Contribuinte: ${book.contributor}',
+                    style: const TextStyle(fontSize: 16)),
                 const SizedBox(height: 8),
-                Text('Editora: ${book.publisher}', style: const TextStyle(
-                    fontSize: 16)),
+                Text('Editora: ${book.publisher}',
+                    style: const TextStyle(fontSize: 16)),
                 const SizedBox(height: 8),
                 Text(
                   'Descrição: ${book.description}',
                   style: const TextStyle(fontSize: 16),
                 ),
-                const SizedBox(height: 16
-                ),
+                const SizedBox(height: 16),
                 Center(
                   child: TextButton(
                       onPressed: () {
-                        launchUrl(book.amazon_product_url as Uri);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                WebsitePage(url: book.amazon_product_url),
+                          ),
+                        );
                       },
+                      style: TextButton.styleFrom(
+                          backgroundColor: Colors.black,
+                          foregroundColor: Colors.white),
                       child: const Text('Comprar')),
                 )
               ],
