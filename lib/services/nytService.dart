@@ -9,7 +9,7 @@ class BookService {
       final response = await _dio.get(
         'https://api.nytimes.com/svc/books/v3/lists/full-overview.json',
         queryParameters: {
-          'api-key': 'WCWmBkSxfIcLUy5X9UfgI5Jm7X5ackkK',
+          'api-key': 'COLOQUE_SUA_API_KEY_AQUI',
         },
       );
 
